@@ -17,5 +17,8 @@ if __name__ == '__main__':
     objects = s3_client.list_bucket_objects('afonsotest123')
     print(objects)
 
+    # This is for list objects of bucket
+    s3_client.delete_file('afonsotest123', 'testelegal.txt')
+
     # This is for list buckets
     print(s3_client.buckets)

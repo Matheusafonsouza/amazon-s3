@@ -60,3 +60,11 @@ class S3:
         except ClientError as e:
             os.remove(file_path)
             logging.error(e)
+
+    def delete_file(self, bucket, filename):
+        try:
+            self.sdk.delete_object(Bucket=bucket, Key=filename)
+        except ClientError as e:
+            logging.error(e)
+            return False
+        return True
