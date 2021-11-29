@@ -13,5 +13,9 @@ if __name__ == '__main__':
     # s3_client.download('./downloads/cool.txt',
     #                    'afonsotest123', 'testelegal.txt')
 
+    # This is for list objects of bucket
+    objects = s3_client.list_bucket_objects('afonsotest123')
+    print(objects)
+
     # This is for list buckets
     print(s3_client.buckets)

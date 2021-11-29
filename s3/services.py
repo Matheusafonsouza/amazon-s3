@@ -17,6 +17,9 @@ class S3:
     def buckets(self):
         return self.sdk.list_buckets().get('Buckets')
 
+    def list_bucket_objects(self, bucket):
+        return self.sdk.list_objects(Bucket=bucket).get('Contents')
+
     def create_bucket(self, name, region=None):
         try:
             if region is None:
