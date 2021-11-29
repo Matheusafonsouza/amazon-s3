@@ -15,10 +15,16 @@ class S3:
 
     @property
     def buckets(self):
-        return self.sdk.list_buckets().get('Buckets')
+        try:
+            return self.sdk.list_buckets().get('Buckets')
+        except ClientError as e:
+            logging.error(e)
 
     def list_bucket_objects(self, bucket):
-        return self.sdk.list_objects(Bucket=bucket).get('Contents')
+        try:
+            return self.sdk.list_objects(Bucket=bucket).get('Contents')
+        except ClientError as e:
+            logging.error(e)
 
     def create_bucket(self, name, region=None):
         try:
@@ -54,5 +60,3 @@ class S3:
         except ClientError as e:
             os.remove(file_path)
             logging.error(e)
-            return False
-        return True
