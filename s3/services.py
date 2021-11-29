@@ -2,11 +2,16 @@ import os
 import logging
 import boto3 as boto
 from botocore.exceptions import ClientError
+from settings import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 
 
 class S3:
     def __init__(self):
-        self.sdk = boto.client('s3')
+        self.sdk = boto.client(
+            's3',
+            aws_access_key_id=AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+        )
 
     @property
     def buckets(self):
