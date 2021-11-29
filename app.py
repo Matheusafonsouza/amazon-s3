@@ -7,8 +7,11 @@ if __name__ == '__main__':
     # s3_client.create_bucket('afonsotest123')
 
     # This is for upload file inside  a bucket
-    # with open('./files/example.txt', 'rb') as file:
-    #     s3_client.upload_file(file, 'afonsotest123')
+    # s3_client.upload('./files/example.txt', 'afonsotest123', 'cool.txt')
+
+    # This is for download a file
+    # s3_client.download('./downloads/cool.txt',
+    #                    'afonsotest123', 'testelegal.txt')
 
     # This is for list buckets
     print(s3_client.buckets)

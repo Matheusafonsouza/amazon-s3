@@ -27,13 +27,24 @@ class S3:
             return False
         return True
 
-    def upload_file(self, file, bucket, object_name=None):
+    def upload(self, file_path, bucket, object_name=None):
         if object_name is None:
-            object_name = os.path.basename(file.name)
+            object_name = os.path.basename(file_path)
 
         try:
-            self.sdk.upload_fileobj(file, bucket, object_name)
+            with open(file_path, 'rb') as file:
+                self.sdk.upload_fileobj(file, bucket, object_name)
         except ClientError as e:
+            logging.error(e)
+            return False
+        return True
+
+    def download(self, file_path, bucket, filename):
+        try:
+            with open(file_path, 'wb') as f:
+                self.sdk.download_fileobj(bucket, filename, f)
+        except ClientError as e:
+            os.remove(file_path)
             logging.error(e)
             return False
         return True
