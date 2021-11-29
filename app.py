@@ -1,6 +1,8 @@
 from s3.services import S3
 
+
 if __name__ == '__main__':
+    # Init s3_client instance!
     s3_client = S3()
 
     # This is for create a bucket

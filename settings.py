@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 
+# This function load all the environments from .env file
 load_dotenv()
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
