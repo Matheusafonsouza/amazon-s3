@@ -1,5 +1,5 @@
 
-![Logo](https://miro.medium.com/max/1200/0*cw-3C4ArykPRrv8T.png)
+![Logo](https://www.eescorporation.com/wp-content/uploads/2021/09/Amazon-S3-performance.png)
 
 
 # S3 Project
